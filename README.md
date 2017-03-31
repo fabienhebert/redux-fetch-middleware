@@ -2,13 +2,22 @@
 
 A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
+##Installation
+
+    npm i fetch-redux-middleware --save
+
+Or use yarn:
+
+    yarn add fetch-redux-middleware
+
 ## Configuration
 
 In order to use this middleware, you can follow this example
 
-    import fetchMiddleware from "middlewares/fetch"
+    import fetchMiddlewareCreator from "redux-fetch-middleware"
+    import { applyMiddleware } from 'redux';
 
-    const fetchMiddlewareInstance = fetchMiddleware({
+    const fetchMiddlewareInstance = fetchMiddlewareCreator({
         base : "https://exampleapi.com,
         defaultHeaders : {
             ["Accept"] : "application/json",
@@ -27,6 +36,9 @@ In order to use this middleware, you can follow this example
             return request
         }
     })
+
+    applyMiddleware(fetchMiddlewareInstance);
+
 
 ## How to use it
 
