@@ -1,15 +1,13 @@
 # redux-fetch-middleware
 
-## Install
-
-TODO, packaging on the way
+A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
 ## Configuration
 
 In order to use this middleware, you can follow this example
 
     import fetchMiddleware from "middlewares/fetch"
-    
+
     const fetchMiddlewareInstance = fetchMiddleware({
         base : "https://exampleapi.com,
         defaultHeaders : {
@@ -20,12 +18,12 @@ In order to use this middleware, you can follow this example
             api_key : "0123445689"
         },
         onRequest : (request, state, action) => {
-            /* this code is called before each request, you can modify it */ 
-          
+            /* this code is called before each request, you can modify it */
+
             if (state.session.token) {
               request.params["token"] = "jwt.token.1212GJ23"
             }
-            
+
             return request
         }
     })
@@ -65,7 +63,7 @@ In order to use this middleware, you can follow this example
               return {
                 TYPE : "HOMEDATA_SUCCESS"
               }
-              
+
             },
             onError : (payload, meta, dispatch, getState) => {
               /* DO SOMETHING WHEN REQUEST FAIL */
@@ -75,7 +73,7 @@ In order to use this middleware, you can follow this example
             }
         }
     }
-    
+
 ## POST Request
 
   A post request just need a aditionnal property : body. You can use param too in a POST request if its requires query parameters
@@ -83,6 +81,7 @@ In order to use this middleware, you can follow this example
     function loginAction(email, password)
         return {
             url : "account/auth",
+            method: 'POST',
             body : {
                 email,
                 password
@@ -92,3 +91,20 @@ In order to use this middleware, you can follow this example
             onError : (payload, meta, dispatch, getState) => {}
         }
     }
+
+## Automatically dispatch Actions
+
+  With autoDispatchPrefix : the middleware will dispatch actions automatically. In this case: LOGIN_SUCCESS, LOGIN_REQUEST and LOGIN_ERROR 
+
+    function loginAction(email, password)
+        return {
+            url : "account/auth",
+            method: 'POST',
+            body : {
+                email,
+                password
+            },
+            autoDispatchPrefix: 'LOGIN',
+        }
+    }
+
