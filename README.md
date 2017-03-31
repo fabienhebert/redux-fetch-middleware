@@ -14,7 +14,7 @@ Or use yarn:
 
 In order to use this middleware, you can follow this example
 
-    import fetchMiddlewareCreator from "redux-fetch-middleware"
+    import fetchMiddlewareCreator from "fetch-redux-middleware"
     import { applyMiddleware } from 'redux';
 
     const fetchMiddlewareInstance = fetchMiddlewareCreator({
