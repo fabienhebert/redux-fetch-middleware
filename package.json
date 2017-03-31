@@ -1,6 +1,6 @@
 {
   "name": "fetch-redux-middleware",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A Redux Middleware that use fetch standard to simplify actions/reducers workflow",
   "main": "index.js",
   "scripts": {
