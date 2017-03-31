@@ -1,4 +1,4 @@
-# redux-fetch-middleware
+# fetch-redux-middleware
 
 A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
@@ -94,7 +94,7 @@ In order to use this middleware, you can follow this example
 
 ## Automatically dispatch Actions
 
-  With autoDispatchPrefix : the middleware will dispatch actions automatically. In this case: LOGIN_SUCCESS, LOGIN_REQUEST and LOGIN_ERROR 
+  With autoDispatchPrefix : the middleware will dispatch actions automatically. In this case: LOGIN_SUCCESS, LOGIN_REQUEST and LOGIN_ERROR
 
     function loginAction(email, password)
         return {
@@ -107,4 +107,3 @@ In order to use this middleware, you can follow this example
             autoDispatchPrefix: 'LOGIN',
         }
     }
-
