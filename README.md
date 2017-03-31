@@ -2,7 +2,7 @@
 
 A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
-##Installation
+## Installation
 
     npm i fetch-redux-middleware --save
 
