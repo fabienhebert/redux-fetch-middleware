@@ -18,7 +18,7 @@ In order to use this middleware, you can follow this example
     import { applyMiddleware } from 'redux';
 
     const fetchMiddlewareInstance = fetchMiddlewareCreator({
-        base : "https://exampleapi.com,
+        base : "https://exampleapi.com",
         defaultHeaders : {
             ["Accept"] : "application/json",
             ["Content-type"] : "application/json"
