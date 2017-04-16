@@ -1,0 +1,24 @@
+{
+  "name": "fetch-redux-middleware",
+  "version": "0.0.4",
+  "description": "A Redux Middleware that use fetch standard to simplify actions/reducers workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimak/fetch-redux-middleware.git"
+  },
+  "keywords": [
+    "fetch",
+    "redux",
+    "middleware"
+  ],
+  "author": "Mickael Dumand <mickael.dumand@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimak/fetch-redux-middleware/issues"
+  },
+  "homepage": "https://github.com/kimak/fetch-redux-middleware#readme"
+}

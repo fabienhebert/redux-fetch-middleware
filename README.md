@@ -1,16 +1,23 @@
-# redux-fetch-middleware
+# fetch-redux-middleware
 
-## Install
+A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
-TODO, packaging on the way
+## Installation
+
+    npm i fetch-redux-middleware --save
+
+Or use yarn:
+
+    yarn add fetch-redux-middleware
 
 ## Configuration
 
 In order to use this middleware, you can follow this example
 
-    import fetchMiddleware from "middlewares/fetch"
-    
-    const fetchMiddlewareInstance = fetchMiddleware({
+    import fetchMiddlewareCreator from "fetch-redux-middleware"
+    import { applyMiddleware } from 'redux';
+
+    const fetchMiddlewareInstance = fetchMiddlewareCreator({
         base : "https://exampleapi.com,
         defaultHeaders : {
             ["Accept"] : "application/json",
@@ -20,15 +27,18 @@ In order to use this middleware, you can follow this example
             api_key : "0123445689"
         },
         onRequest : (request, state, action) => {
-            /* this code is called before each request, you can modify it */ 
-          
+            /* this code is called before each request, you can modify it */
+
             if (state.session.token) {
               request.params["token"] = "jwt.token.1212GJ23"
             }
-            
+
             return request
         }
     })
+
+    applyMiddleware(fetchMiddlewareInstance);
+
 
 ## How to use it
 
@@ -65,7 +75,7 @@ In order to use this middleware, you can follow this example
               return {
                 TYPE : "HOMEDATA_SUCCESS"
               }
-              
+
             },
             onError : (payload, meta, dispatch, getState) => {
               /* DO SOMETHING WHEN REQUEST FAIL */
@@ -75,7 +85,7 @@ In order to use this middleware, you can follow this example
             }
         }
     }
-    
+
 ## POST Request
 
   A post request just need a aditionnal property : body. You can use param too in a POST request if its requires query parameters
@@ -83,6 +93,7 @@ In order to use this middleware, you can follow this example
     function loginAction(email, password)
         return {
             url : "account/auth",
+            method: 'POST',
             body : {
                 email,
                 password
@@ -90,5 +101,21 @@ In order to use this middleware, you can follow this example
             onStart : (payload, meta, dispatch, getState) => {},
             onSuccess : (payload, meta, dispatch, getState) => {},
             onError : (payload, meta, dispatch, getState) => {}
+        }
+    }
+
+## Automatically dispatch Actions
+
+  With autoDispatchPrefix : the middleware will dispatch actions automatically. In this case: LOGIN_SUCCESS, LOGIN_REQUEST and LOGIN_ERROR
+
+    function loginAction(email, password)
+        return {
+            url : "account/auth",
+            method: 'POST',
+            body : {
+                email,
+                password
+            },
+            autoDispatchPrefix: 'LOGIN',
         }
     }
