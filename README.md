@@ -2,14 +2,6 @@
 
 A Redux Middleware that use fetch standard to simplify fetch actions/reducers workflow
 
-## Installation
-
-    npm i fetch-redux-middleware --save
-
-Or use yarn:
-
-    yarn add fetch-redux-middleware
-
 ## Configuration
 
 In order to use this middleware, you can follow this example
